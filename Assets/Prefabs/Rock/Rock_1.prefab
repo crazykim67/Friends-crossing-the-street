@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8040962577200945868}
   - component: {fileID: 8040962577200945869}
   m_Layer: 0
-  m_Name: Rock (1)
+  m_Name: Rock_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ Transform:
   m_Children:
   - {fileID: 8040962575343563245}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8040962577200945869
 BoxCollider:
