@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3302644233298691523}
   - component: {fileID: 1907981410439645798}
   - component: {fileID: 4440115690893819564}
-  - component: {fileID: 4440115690893819565}
+  - component: {fileID: 1019302899}
   m_Layer: 0
   m_Name: Daino
   m_TagString: Untagged
@@ -88,7 +88,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &4440115690893819565
+--- !u!95 &1019302899
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 2782813086144438137}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 25df8a21e48786747b4fcdbe957b3034, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7fb178a24a9a1a64d98d791f65596bbf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -139,7 +139,7 @@ Transform:
   m_Children:
   - {fileID: 3302644233298691523}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5656594361097221765
 BoxCollider:
