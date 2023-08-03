@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 121634880840041825}
   - component: {fileID: 3900110486402468548}
   - component: {fileID: 1295645377568669198}
-  - component: {fileID: 448841790153941640}
   m_Layer: 0
   m_Name: Train
   m_TagString: Untagged
@@ -90,27 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &448841790153941640
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791493250706104283}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.01, y: 1.9999999, z: 2}
-  m_Center: {x: 0.004999995, y: 0, z: 0}
 --- !u!1 &791493251204335421
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +100,6 @@ GameObject:
   - component: {fileID: 121634881407491463}
   - component: {fileID: 3900110486902411810}
   - component: {fileID: 1295645377059940072}
-  - component: {fileID: 448841789578312298}
   m_Layer: 0
   m_Name: Train_Body
   m_TagString: Untagged
@@ -201,27 +178,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &448841789578312298
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791493251204335421}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 1.9999999, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2867814398206666590
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +187,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4315635190158545907}
+  - component: {fileID: 3282641043582135073}
+  - component: {fileID: 8327185003126181891}
   m_Layer: 0
   m_Name: Blue_Train
   m_TagString: Untagged
@@ -246,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2867814398206666590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 0.75, z: 18}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -256,8 +214,41 @@ Transform:
   - {fileID: 2300671074283738592}
   - {fileID: 498556525450953019}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3282641043582135073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2867814398206666590}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.1517813, z: 20.258574}
+  m_Center: {x: 0, y: -0.07589078, z: -10.1221285}
+--- !u!114 &8327185003126181891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2867814398206666590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b08cded3710f847873fd0e8aaf70ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4879297950114022325
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +260,6 @@ GameObject:
   - component: {fileID: 2300671074283738592}
   - component: {fileID: 6792233504691132273}
   - component: {fileID: 7731722219497684349}
-  - component: {fileID: 325351874507995893}
   m_Layer: 0
   m_Name: Train_Body (2)
   m_TagString: Untagged
@@ -348,27 +338,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &325351874507995893
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4879297950114022325}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 1.9999999, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8341698063226686948
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +349,6 @@ GameObject:
   - component: {fileID: 498556525450953019}
   - component: {fileID: 9134509160745453115}
   - component: {fileID: 2550449871319008622}
-  - component: {fileID: 6800795142357420938}
   m_Layer: 0
   m_Name: Train (1)
   m_TagString: Untagged
@@ -459,27 +427,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6800795142357420938
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8341698063226686948}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.01, y: 1.9999999, z: 2}
-  m_Center: {x: 0.004999995, y: 0, z: 0}
 --- !u!1 &9034720297299087262
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +438,6 @@ GameObject:
   - component: {fileID: 3463043330603995891}
   - component: {fileID: 9115652675896702779}
   - component: {fileID: 3764544005983816872}
-  - component: {fileID: 3074803045255966608}
   m_Layer: 0
   m_Name: Train_Body (1)
   m_TagString: Untagged
@@ -570,24 +516,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3074803045255966608
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9034720297299087262}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 1.9999999, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}

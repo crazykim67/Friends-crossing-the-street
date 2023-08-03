@@ -9,9 +9,11 @@ public class Spawner : MonoBehaviour
     private Transform spwanPos;
 
     //public GameObject carPrefab;
-    private float spawnDelay;
+    [HideInInspector]
+    public float spawnDelay;
 
-    protected float nextTime = 0f;
+    //[HideInInspector]
+    public float nextTime = 0f;
 
     [SerializeField]
     private float minDelay, maxDelay;

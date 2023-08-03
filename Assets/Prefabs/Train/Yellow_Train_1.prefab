@@ -444,10 +444,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7580187157715192297}
-  - component: {fileID: 8792438845071566073}
-  - component: {fileID: 2608560342675932915}
+  - component: {fileID: 2042291777330723037}
+  - component: {fileID: 7190258448831700523}
   m_Layer: 0
-  m_Name: Yellow_Train
+  m_Name: Yellow_Train_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8792438845071566073
+--- !u!114 &2042291777330723037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b08cded3710f847873fd0e8aaf70ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &2608560342675932915
+--- !u!65 &7190258448831700523
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
