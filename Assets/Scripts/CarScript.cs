@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CarScript : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 3f;
+    private float speed;
 
     private void Update()
     {
@@ -22,4 +21,8 @@ public class CarScript : MonoBehaviour
             PoolManager.Instance.Destroy(this.gameObject);
     }
 
+    public void SetSpeed(float _speed)
+    {
+        speed = _speed;
+    }
 }

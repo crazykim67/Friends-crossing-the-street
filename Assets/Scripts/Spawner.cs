@@ -9,12 +9,18 @@ public class Spawner : MonoBehaviour
     private Transform spwanPos;
 
     //public GameObject carPrefab;
-    public float spawnDelay;
+    private float spawnDelay;
 
     protected float nextTime = 0f;
 
     [SerializeField]
     private float minDelay, maxDelay;
+
+    [SerializeField]
+    private float speed;
+
+    [SerializeField]
+    private float offsetY;
 
     private void Start()
     {
@@ -39,9 +45,10 @@ public class Spawner : MonoBehaviour
         Transform clonePos = spwanPos;
         Vector3 offsetPos = clonePos.position;
 
-        offsetPos.y = 0.25f;
+        offsetPos.y = offsetY;
 
         //GameObject cloneObject = Instantiate(carPrefab, offsetPos, clonePos.rotation, this.transform);
         CarScript car = PoolManager.Instance.Get(carIndex, offsetPos, clonePos.rotation, this.transform).GetComponent<CarScript>();
+        car.SetSpeed(speed);
     }
 }
