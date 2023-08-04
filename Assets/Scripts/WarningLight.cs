@@ -20,13 +20,11 @@ public class WarningLight : MonoBehaviour
         if(spawner.nextTime <= currSec)
         {
             anim.SetBool("isWarning", true);
-            Debug.Log("위험");
         }
     }
 
     public void Safety()
     {
         anim.SetBool("isWarning", false);
-        Debug.Log("안전");
     }
 }

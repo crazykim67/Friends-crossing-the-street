@@ -11,6 +11,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CamVisble visible;
 
+    [Header("Player Score")]
+    private int score = 0;
+    private float playerPosition;
+
+    [SerializeField]
+    private CameraController cameraController;
+
+    private void Start() => playerPosition = this.transform.position.z;
+
     private void Update()
     {
         InputPC();
@@ -23,22 +32,16 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("jump");
             isJumping = true;
 
-            //float anothZ = 0;
-
-            //if(transform.position.z % 1 != 0)
-            //{
-            //    anothZ =  Mathf.Round(transform.position.z) -transform.position.z;
-            //}
-
-            transform.position = (transform.position + new Vector3(0, 0, -1));
+            transform.position = (transform.position + new Vector3(0, 0, 1));
             transform.rotation = Quaternion.identity;
+            IncreaseScore();
         }
         else if(Input.GetKeyDown(KeyCode.A) && !isJumping)
         {
             anim.SetTrigger("jump");
             isJumping = true;
 
-            transform.position = (transform.position + new Vector3(1, 0, 0));
+            transform.position = (transform.position + new Vector3(-1, 0, 0));
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
         else if(Input.GetKeyDown(KeyCode.D) && !isJumping) 
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("jump");
             isJumping = true;
 
-            transform.position = (transform.position + new Vector3(-1, 0, 0));
+            transform.position = (transform.position + new Vector3(1, 0, 0));
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
         else if(Input.GetKeyDown(KeyCode.S) && !isJumping) 
@@ -54,8 +57,20 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("jump");
             isJumping = true;
 
-            transform.position = (transform.position + new Vector3(0, 0, 1));
+            transform.position = (transform.position + new Vector3(0, 0, -1));
             transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+
+    }
+
+    public void IncreaseScore()
+    {
+        //scorePosition = Vector3.Distance(playerPosition, );
+        if(playerPosition < this.transform.position.z)
+        {
+            score++;
+            playerPosition = this.transform.position.z;
+            cameraController.CamParentFollow();
         }
     }
 }
