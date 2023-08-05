@@ -6,6 +6,8 @@ public class CarScript : MonoBehaviour
 {
     private float speed;
 
+    public bool isRaft;
+
     private void Update()
     {
         if (!this.gameObject.activeSelf)

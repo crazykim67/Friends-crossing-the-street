@@ -73,4 +73,19 @@ public class PlayerController : MonoBehaviour
             cameraController.CamParentFollow();
         }
     }
+
+    private void OnCollisionEnter(Collision coll)
+    {
+        if(coll.transform.GetComponent<CarScript>() != null)
+        {
+            if (coll.transform.GetComponent<CarScript>().isRaft)
+            {
+                this.transform.parent = coll.transform;
+            }
+        }
+        else
+        {
+            this.transform.parent = null;
+        }
+    }
 }

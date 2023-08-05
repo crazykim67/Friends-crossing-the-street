@@ -5261,7 +5261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b31e045296b354b94cafa5630c1616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carIndex: 6
+  carIndex: 7
   spawnDelay: 0
   nextTime: 0
   minDelay: 1
@@ -9712,8 +9712,8 @@ MonoBehaviour:
   spawnDelay: 0
   nextTime: 0
   minDelay: 2
-  maxDelay: 5
-  speed: 2
+  maxDelay: 4
+  speed: 4
   offsetY: 0.035
 --- !u!1001 &1072155843
 PrefabInstance:
@@ -13837,7 +13837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b31e045296b354b94cafa5630c1616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carIndex: 7
+  carIndex: 6
   spawnDelay: 0
   nextTime: 0
   minDelay: 2
@@ -17250,9 +17250,9 @@ MonoBehaviour:
   carIndex: 6
   spawnDelay: 0
   nextTime: 0
-  minDelay: 2
-  maxDelay: 5
-  speed: 2.2
+  minDelay: 1
+  maxDelay: 4
+  speed: 3
   offsetY: 0.035
 --- !u!1001 &2098962122
 PrefabInstance:
@@ -17797,6 +17797,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 67731073, guid: 6c35b4c7644535c48ae315e3afbbc031, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
     - target: {fileID: 568100702414068097, guid: 6c35b4c7644535c48ae315e3afbbc031,
         type: 3}
       propertyPath: cameraController
