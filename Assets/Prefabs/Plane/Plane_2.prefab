@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2502132274744856367}
   - component: {fileID: 2502132274744856402}
   - component: {fileID: 2502132274744856401}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2502132276056059858}
   - component: {fileID: -8702920075655041309}
   - component: {fileID: 7589247837226401120}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane_2
   m_TagString: Raft
   m_Icon: {fileID: 0}

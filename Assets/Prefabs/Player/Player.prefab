@@ -208,7 +208,6 @@ MonoBehaviour:
   isJumping: 0
   visible: {fileID: 568100702414068103}
   cameraController: {fileID: 0}
-  raftTr: {fileID: 0}
 --- !u!54 &67731073
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -15,10 +15,14 @@ public class PlayerController : MonoBehaviour
     private int score = 0;
     private float playerPosition;
 
-    [SerializeField]
-    private CameraController cameraController;
+    public CameraController cameraController;
 
-    private void Start() => playerPosition = this.transform.position.z;
+    public static bool isDeath = false;
+
+    private void Start()
+    {
+        playerPosition = this.transform.position.z;
+    }
 
     private void Update()
     {
@@ -27,6 +31,9 @@ public class PlayerController : MonoBehaviour
 
     public void InputPC()
     {
+        if (isDeath)
+            return;
+
         if (Input.GetKeyDown(KeyCode.W) && !isJumping)
         {
             anim.SetTrigger("jump");
@@ -65,22 +72,41 @@ public class PlayerController : MonoBehaviour
 
     public void IncreaseScore()
     {
+        if (isDeath)
+            return;
+
         //scorePosition = Vector3.Distance(playerPosition, );
-        if(playerPosition < this.transform.position.z)
+        if (playerPosition < this.transform.position.z)
         {
             score++;
             playerPosition = this.transform.position.z;
+
+            if(cameraController)
             cameraController.CamParentFollow();
         }
     }
 
     private void OnCollisionEnter(Collision coll)
     {
+        if (isDeath)
+            return;
+
+        if (coll.transform.tag == "Water")
+        {
+            isDeath = true;
+            GameManager.Instance.OnWater();
+        }
+
         if(coll.transform.GetComponent<CarScript>() != null)
         {
             if (coll.transform.GetComponent<CarScript>().isRaft)
             {
                 this.transform.parent = coll.transform;
+            }
+            else
+            {
+                anim.SetTrigger("isDeath");
+                isDeath = true;
             }
         }
         else
@@ -88,4 +114,5 @@ public class PlayerController : MonoBehaviour
             this.transform.parent = null;
         }
     }
+
 }

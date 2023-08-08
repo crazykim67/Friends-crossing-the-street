@@ -7,8 +7,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float speed = 1f;
 
-    [SerializeField]
-    private GameObject player;
+    public GameObject player;
     [SerializeField]
     private Vector3 offset;
     [SerializeField]
@@ -23,6 +22,9 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerController.isDeath || !player)
+            return;
+
         float move = speed * Time.deltaTime;
         transform.Translate(0f, 0f, move);
 
@@ -31,6 +33,9 @@ public class CameraController : MonoBehaviour
 
     public void CamParentFollow()
     {
+        if (PlayerController.isDeath || !player)
+            return;
+
         if (this.transform.position.z > player.transform.position.z)
             return;
 
