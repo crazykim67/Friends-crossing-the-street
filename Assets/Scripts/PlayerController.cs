@@ -19,14 +19,23 @@ public class PlayerController : MonoBehaviour
 
     public static bool isDeath = false;
 
+    private Rigidbody rg;
+    [Header("Raycast Relate")]
+    [SerializeField]
+    private Transform rayTr;
+    [SerializeField]
+    private float rayDistance = 0.5f;
+
     private void Start()
     {
         playerPosition = this.transform.position.z;
+        rg = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         InputPC();
+        Raycast();
     }
 
     public void InputPC()
@@ -34,7 +43,7 @@ public class PlayerController : MonoBehaviour
         if (isDeath)
             return;
 
-        if (Input.GetKeyDown(KeyCode.W) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.W) && !isJumping && FrontRaycast())
         {
             anim.SetTrigger("jump");
             isJumping = true;
@@ -43,7 +52,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.identity;
             IncreaseScore();
         }
-        else if(Input.GetKeyDown(KeyCode.A) && !isJumping)
+        else if(Input.GetKeyDown(KeyCode.A) && !isJumping && LeftRaycast())
         {
             anim.SetTrigger("jump");
             isJumping = true;
@@ -51,7 +60,7 @@ public class PlayerController : MonoBehaviour
             transform.position = (transform.position + new Vector3(-1, 0, 0));
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
-        else if(Input.GetKeyDown(KeyCode.D) && !isJumping) 
+        else if(Input.GetKeyDown(KeyCode.D) && !isJumping && RightRaycast()) 
         {
             anim.SetTrigger("jump");
             isJumping = true;
@@ -59,7 +68,7 @@ public class PlayerController : MonoBehaviour
             transform.position = (transform.position + new Vector3(1, 0, 0));
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
-        else if(Input.GetKeyDown(KeyCode.S) && !isJumping) 
+        else if(Input.GetKeyDown(KeyCode.S) && !isJumping && BackRaycast()) 
         {
             anim.SetTrigger("jump");
             isJumping = true;
@@ -106,7 +115,9 @@ public class PlayerController : MonoBehaviour
             else
             {
                 anim.SetTrigger("isDeath");
+                rg.isKinematic = true;
                 isDeath = true;
+                transform.position = new Vector3(transform.position.x, 0.75f, transform.position.z);
             }
         }
         else
@@ -114,5 +125,69 @@ public class PlayerController : MonoBehaviour
             this.transform.parent = null;
         }
     }
+
+    #region DirectionCheck
+
+    private void Raycast()
+    {
+        Debug.DrawRay(rayTr.position, Vector3.right * rayDistance, Color.red);
+        Debug.DrawRay(rayTr.position, Vector3.left * rayDistance, Color.red);
+        Debug.DrawRay(rayTr.position, Vector3.forward * rayDistance, Color.red);
+        Debug.DrawRay(rayTr.position, Vector3.back * rayDistance, Color.red);
+    }
+
+    private bool LeftRaycast()
+    {
+        int layer = 1 << LayerMask.NameToLayer("Env");
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(rayTr.position, Vector3.left, out hit, rayDistance, layer))
+            if(hit.transform.tag == "Env")
+                return false;
+
+        return true;
+    }
+
+    private bool RightRaycast()
+    {
+        int layer = 1 << LayerMask.NameToLayer("Env");
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(rayTr.position, Vector3.right, out hit, rayDistance, layer))
+            if (hit.transform.tag == "Env")
+                return false;
+
+        return true;
+    }
+
+    private bool FrontRaycast()
+    {
+        int layer = 1 << LayerMask.NameToLayer("Env");
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(rayTr.position, Vector3.forward, out hit, rayDistance, layer))
+            if (hit.transform.tag == "Env")
+                return false;
+
+        return true;
+    }
+
+    private bool BackRaycast()
+    {
+        int layer = 1 << LayerMask.NameToLayer("Env");
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(rayTr.position, Vector3.back, out hit, rayDistance, layer))
+            if (hit.transform.tag == "Env")
+                return false;
+
+        return true;
+    }
+
+    #endregion
 
 }

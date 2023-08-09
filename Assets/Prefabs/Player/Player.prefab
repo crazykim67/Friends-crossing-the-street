@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1019302899}
   - component: {fileID: 568100702414068099}
   - component: {fileID: 568100702414068103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Daino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 5656594361097221765}
   - component: {fileID: 568100702414068097}
   - component: {fileID: 67731073}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,6 +208,8 @@ MonoBehaviour:
   isJumping: 0
   visible: {fileID: 568100702414068103}
   cameraController: {fileID: 0}
+  rayTr: {fileID: 3302644233298691523}
+  rayDistance: 0.8
 --- !u!54 &67731073
 Rigidbody:
   m_ObjectHideFlags: 0

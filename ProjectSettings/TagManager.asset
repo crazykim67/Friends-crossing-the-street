@@ -7,6 +7,7 @@ TagManager:
   - Destroyer
   - Raft
   - Water
+  - Env
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - Entity
   - Water
   - UI
-  - 
-  - 
+  - Env
+  - Player
   - 
   - 
   - 

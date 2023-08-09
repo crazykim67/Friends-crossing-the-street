@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 8069729830582124471}
   - component: {fileID: 8069729830582124468}
   - component: {fileID: 8069729830582124469}
+  - component: {fileID: -6183518700931080503}
   m_Layer: 0
   m_Name: Bus
   m_TagString: Untagged
@@ -282,7 +283,7 @@ Transform:
   - {fileID: 308490226113575753}
   - {fileID: 7527707384325354797}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &8069729830582124468
 MonoBehaviour:
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b08cded3710f847873fd0e8aaf70ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  isRaft: 0
 --- !u!65 &8069729830582124469
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -316,8 +317,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.2976205, y: 2.6047912, z: 7.4120283}
-  m_Center: {x: -0.0238581, y: 1.3775663, z: -0.111554265}
+  m_Size: {x: 2.2976205, y: 1.8807482, z: 7.4120283}
+  m_Center: {x: -0.0238581, y: 1.7395878, z: -0.111554265}
+--- !u!54 &-6183518700931080503
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257163951996675341}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7527707384325354770
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class WaterDeath : MonoBehaviour
         foreach(var cube in cubeList) 
         { 
             Rigidbody rg = cube.GetComponent<Rigidbody>();
-            rg.AddForce(Vector3.up * 100f, ForceMode.Force);
+            rg.AddForce(Vector3.up * 200f, ForceMode.Force);
         }
     }
 }

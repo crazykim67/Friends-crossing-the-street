@@ -8475,7 +8475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd74aab4010518f458c8ad2908c1e2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 0.2
   player: {fileID: 0}
   offset: {x: 0, y: 2.75, z: 0}
   smoothness: 0.01
