@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
 
     //[HideInInspector]
     public float nextTime = 0f;
-
+    private float currSec = 0f;
     [SerializeField]
     private float minDelay, maxDelay;
 
@@ -31,7 +31,8 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        float currSec = Time.time;
+        currSec += Time.deltaTime;
+        //float currSec = Time.time;
 
         if (nextTime <= currSec)
         {

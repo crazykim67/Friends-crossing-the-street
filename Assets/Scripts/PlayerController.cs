@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private CamVisble visible;
 
     [Header("Player Score")]
-    private int score = 0;
+    public static int score = 0;
     private float playerPosition;
 
     public CameraController cameraController;
@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour
         if (isDeath)
             return;
 
-        //scorePosition = Vector3.Distance(playerPosition, );
         if (playerPosition < this.transform.position.z)
         {
             score++;
@@ -92,6 +91,8 @@ public class PlayerController : MonoBehaviour
 
             if(cameraController)
             cameraController.CamParentFollow();
+
+            TerrainGenerator.Instance.OnGenerate();
         }
     }
 
