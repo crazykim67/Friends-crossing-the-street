@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
             cameraController.CamParentFollow();
 
             TerrainGenerator.Instance.OnGenerate();
+            TerrainGenerator.Instance.OnTerrainDisable();
         }
     }
 
