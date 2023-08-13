@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
+        Application.targetFrameRate = 60;
 
         if(PlayerPrefs.HasKey("Score"))
             saveScore = PlayerPrefs.GetInt("Score");
@@ -84,6 +85,8 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.DeleteKey("Score");
             saveScore = 0;
         });
+
+        exitBtn.onClick.AddListener(() => { Application.Quit(); });
     }
 
     public void MainInit()
@@ -91,6 +94,15 @@ public class GameManager : MonoBehaviour
 #if UNITY_ANDROID
         pad.SetActive(false);
 #endif
+        cameraController.camTr.position = cameraInitTr.position;
+        cameraController.transform.position = cameraInitTr.position;
+        cameraController.player = playerController.gameObject;
+
+        if (playerController)
+            Destroy(playerController.gameObject);
+        playerController = null;
+
+        TerrainGenerator.Instance.OnReset();
 
         inGameUI.SetActive(false);
         overUI.SetActive(false);
