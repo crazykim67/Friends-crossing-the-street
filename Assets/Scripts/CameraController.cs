@@ -13,7 +13,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float smoothness;
 
-    private Transform camTr;
+    [HideInInspector]
+    public Transform camTr;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerController.isDeath || !player)
+        if (GameManager.Instance.isDeath || !player || !GameManager.Instance.isStart)
             return;
 
         float move = speed * Time.deltaTime;
@@ -33,7 +34,7 @@ public class CameraController : MonoBehaviour
 
     public void CamParentFollow()
     {
-        if (PlayerController.isDeath || !player)
+        if (GameManager.Instance.isDeath || !player || !GameManager.Instance.isStart)
             return;
 
         if (this.transform.position.z > player.transform.position.z)

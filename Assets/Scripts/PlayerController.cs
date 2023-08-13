@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,13 +12,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CamVisble visible;
 
-    [Header("Player Score")]
     public static int score = 0;
+
     private float playerPosition;
 
     public CameraController cameraController;
-
-    public static bool isDeath = false;
 
     private Rigidbody rg;
     [Header("Raycast Relate")]
@@ -25,6 +24,9 @@ public class PlayerController : MonoBehaviour
     private Transform rayTr;
     [SerializeField]
     private float rayDistance = 0.5f;
+
+    [Header("Mobile Pad")]
+    public Button up, left, right, down;
 
     private void Start()
     {
@@ -34,13 +36,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+#if !UNITY_ANDROID
         InputPC();
+#endif
         Raycast();
     }
 
     public void InputPC()
     {
-        if (isDeath)
+        if (GameManager.Instance.isDeath || !GameManager.Instance.isStart)
             return;
 
         if (Input.GetKeyDown(KeyCode.W) && !isJumping && FrontRaycast())
@@ -79,9 +83,77 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    #region Mobile Input
+
+    public void InitMobilePad(Button _up, Button _left, Button _right, Button _down)
+    {
+        up = _up;
+        left = _left;
+        right = _right;
+        down = _down;
+
+        up.onClick.RemoveAllListeners();
+        left.onClick.RemoveAllListeners();
+        right.onClick.RemoveAllListeners();
+        down.onClick.RemoveAllListeners();
+
+        up.onClick.AddListener(InputUp);
+        left.onClick.AddListener(InputLeft);
+        right.onClick.AddListener(InputRight);
+        down.onClick.AddListener(InputDown);
+    }
+
+    public void InputUp()
+    {
+        if (!isJumping && FrontRaycast())
+        {
+            anim.SetTrigger("jump");
+            isJumping = true;
+
+            transform.position = (transform.position + new Vector3(0, 0, 1));
+            transform.rotation = Quaternion.identity;
+            IncreaseScore();
+        }
+    }
+    public void InputLeft()
+    {
+        if (!isJumping && LeftRaycast())
+        {
+            anim.SetTrigger("jump");
+            isJumping = true;
+
+            transform.position = (transform.position + new Vector3(-1, 0, 0));
+            transform.rotation = Quaternion.Euler(0, -90, 0);
+        }
+    }
+    public void InputRight()
+    {
+        if (!isJumping && RightRaycast())
+        {
+            anim.SetTrigger("jump");
+            isJumping = true;
+
+            transform.position = (transform.position + new Vector3(1, 0, 0));
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
+    }
+    public void InputDown()
+    {
+        if (!isJumping && BackRaycast())
+        {
+            anim.SetTrigger("jump");
+            isJumping = true;
+
+            transform.position = (transform.position + new Vector3(0, 0, -1));
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
+
+    #endregion
+
     public void IncreaseScore()
     {
-        if (isDeath)
+        if (GameManager.Instance.isDeath || !GameManager.Instance.isStart)
             return;
 
         if (playerPosition < this.transform.position.z)
@@ -94,17 +166,18 @@ public class PlayerController : MonoBehaviour
 
             TerrainGenerator.Instance.OnGenerate();
             TerrainGenerator.Instance.OnTerrainDisable();
+            GameManager.Instance.UpdateScore(score);
         }
     }
 
     private void OnCollisionEnter(Collision coll)
     {
-        if (isDeath)
+        if (GameManager.Instance.isDeath || !GameManager.Instance.isStart)
             return;
 
         if (coll.transform.tag == "Water")
         {
-            isDeath = true;
+            GameManager.Instance.isDeath = true;
             GameManager.Instance.OnWater();
         }
 
@@ -118,7 +191,8 @@ public class PlayerController : MonoBehaviour
             {
                 anim.SetTrigger("isDeath");
                 rg.isKinematic = true;
-                isDeath = true;
+                GameManager.Instance.isDeath = true;
+                GameManager.Instance.GameOverInit();
                 transform.position = new Vector3(transform.position.x, 0.75f, transform.position.z);
             }
         }
@@ -191,5 +265,4 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
-
 }

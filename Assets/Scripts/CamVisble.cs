@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class CamVisble : MonoBehaviour
 {
-    public bool isVisble = true;
-
-    public void OnBecameVisible()
-    {
-        isVisble = true;
-    }
+    public PlayerController playerController;
 
     public void OnBecameInvisible()
     {
-        isVisble = false;
+        if (!GameManager.Instance.playerController)
+            return;
+
+        if (playerController != GameManager.Instance.playerController)
+            return;
+
+        //if (GameManager.Instance.isDeath && !GameManager.Instance.isStart)
+        //    return;
+
+        Debug.Log("»Æ¿Œ");
+        GameManager.Instance.isDeath = true;
+        GameManager.Instance.GameOverInit();
     }
 }

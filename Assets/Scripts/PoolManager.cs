@@ -77,4 +77,17 @@ public class PoolManager : MonoBehaviour
     {
         _obj.SetActive(false);
     }
+
+    public void Clear()
+    {
+        foreach(var pool in pools)
+            pool.Clear();
+
+        pools = new List<GameObject>[carList.Length];
+
+        for (int i = 0; i < pools.Length; i++)
+        {
+            pools[i] = new List<GameObject>();
+        }
+    }
 }
