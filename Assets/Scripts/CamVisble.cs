@@ -20,5 +20,6 @@ public class CamVisble : MonoBehaviour
         Debug.Log("»Æ¿Œ");
         GameManager.Instance.isDeath = true;
         GameManager.Instance.GameOverInit();
+        SoundManager.Instance.OnDeath();
     }
 }

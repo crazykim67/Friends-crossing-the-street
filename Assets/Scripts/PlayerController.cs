@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = (transform.position + new Vector3(0, 0, 1));
             transform.rotation = Quaternion.identity;
+            SoundManager.Instance.OnJump();
             IncreaseScore();
         }
         else if(Input.GetKeyDown(KeyCode.A) && !isJumping && LeftRaycast())
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = (transform.position + new Vector3(-1, 0, 0));
             transform.rotation = Quaternion.Euler(0, -90, 0);
+            SoundManager.Instance.OnJump();
         }
         else if(Input.GetKeyDown(KeyCode.D) && !isJumping && RightRaycast()) 
         {
@@ -71,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = (transform.position + new Vector3(1, 0, 0));
             transform.rotation = Quaternion.Euler(0, 90, 0);
+            SoundManager.Instance.OnJump();
         }
         else if(Input.GetKeyDown(KeyCode.S) && !isJumping && BackRaycast()) 
         {
@@ -79,6 +82,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = (transform.position + new Vector3(0, 0, -1));
             transform.rotation = Quaternion.Euler(0, 180, 0);
+            SoundManager.Instance.OnJump();
         }
 
     }
@@ -112,6 +116,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = (transform.position + new Vector3(0, 0, 1));
             transform.rotation = Quaternion.identity;
+            SoundManager.Instance.OnJump();
             IncreaseScore();
         }
     }
@@ -124,6 +129,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = (transform.position + new Vector3(-1, 0, 0));
             transform.rotation = Quaternion.Euler(0, -90, 0);
+            SoundManager.Instance.OnJump();
         }
     }
     public void InputRight()
@@ -135,6 +141,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = (transform.position + new Vector3(1, 0, 0));
             transform.rotation = Quaternion.Euler(0, 90, 0);
+            SoundManager.Instance.OnJump();
         }
     }
     public void InputDown()
@@ -146,6 +153,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = (transform.position + new Vector3(0, 0, -1));
             transform.rotation = Quaternion.Euler(0, 180, 0);
+            SoundManager.Instance.OnJump();
         }
     }
 
@@ -179,9 +187,10 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.isDeath = true;
             GameManager.Instance.OnWater();
+            SoundManager.Instance.OnDeath();
         }
 
-        if(coll.transform.GetComponent<CarScript>() != null)
+        if (coll.transform.GetComponent<CarScript>() != null)
         {
             if (coll.transform.GetComponent<CarScript>().isRaft)
             {
@@ -193,6 +202,7 @@ public class PlayerController : MonoBehaviour
                 rg.isKinematic = true;
                 GameManager.Instance.isDeath = true;
                 GameManager.Instance.GameOverInit();
+                SoundManager.Instance.OnDeath();
                 transform.position = new Vector3(transform.position.x, 0.75f, transform.position.z);
             }
         }

@@ -22,8 +22,23 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource bgmAd;
 
+    public AudioSource death_1;
+    public AudioSource death_2;
+
+    public AudioSource jumpAd;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    public void OnDeath()
+    {
+        death_1.Play();
+        death_2.Play();
+    }
+    public void OnJump()
+    {
+        jumpAd.Play();
     }
 }
