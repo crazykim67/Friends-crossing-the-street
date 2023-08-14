@@ -23,7 +23,7 @@ public class TerrainGenerator : MonoBehaviour
     }
 
     // 초기 z 값은 17임
-    private Vector3 currentPosition = new Vector3(0, 0, 17);
+    private Vector3 currentPosition = new Vector3(0, 0, 16);
 
     [SerializeField]
     private List<GameObject> terrains = new List<GameObject>();
@@ -69,7 +69,7 @@ public class TerrainGenerator : MonoBehaviour
 
         newEnvList.Clear();
 
-        currentPosition = new Vector3(0, 0, 17);
+        currentPosition = new Vector3(0, 0, 16);
         envIndex = 0;
     }
 }
